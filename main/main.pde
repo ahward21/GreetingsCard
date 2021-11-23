@@ -1,4 +1,4 @@
-float theta=0.0;
+float angle=0.0;
 float r=random(100, 255);
 float g=random(100, 255);
 float b=random(100, 255);

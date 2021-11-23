@@ -3,6 +3,10 @@ class Word {
   String[] myText;
   String longText;
   Letter[] letters;
+  float angle=0.0;
+  float r=random(100, 255);
+  float g=random(100, 255);
+  float b=random(100, 255);
 
   Word() {
     myText=loadStrings("text.txt");
@@ -15,14 +19,17 @@ class Word {
   }
 
 void wave() {
-  theta+=0.05;
-  float q=theta;
-  for (int i=0;i<=100;i++) {
-    fill(r-i*2, g-i*2, b-i*2);
-    float y=sin(q)*mouseY/2;
+  angle+=0.05;
+  float q=angle;
+  for (int x = 0; x< letters.length; x++) {
+    for (int i=0;i<=100;i++) {
+      float y=sin(q)*mouseY/2;
+      fill(r-i*2, g-i*2, b-i*2);
+      text(longText.charAt(x)+" ",i*10,y+height/2);
+          
+        
    
-    for (int x = 0; x< letters.length; x++) {
-      text(longText.charAt(x)+" ",i*10,y+height/2); //so this is the code that prints the letters but they currently print em in the same place thats the issues 
+    //so this is the code that prints the letters but they currently print em in the same place thats the issues 
     q+=mouseX/250f;
   }
 }
