@@ -1,32 +1,32 @@
-float angle=0.0;
-float r=random(100, 255);
-float g=random(100, 255);
-float b=random(100, 255);
+/* Alien themed greetings card created by Jan Kroger & Alex Ward
+   lAUNCH the program and follow the instructions on the screen 
+*/
 boolean initial;
-Word word;
+
+Animation animation;
 Ufo ufo;
 Card card;
 
 void setup() {
-  size(700, 1080);
+  size(700, 1250);
   noStroke();
   smooth();
-  word= new Word();
+  animation= new Animation();
   ufo= new Ufo();
   card=new Card();
 }
 
 void draw() {
-  if (initial==false) {
+  if (initial==false) { //check for card, then display 
     card.display();
     card.textDisplay();
   }
-  if (initial==true) {
+  if (initial==true) { 
     pushMatrix();
     rotate(HALF_PI);
-    translate(150, -width-200);
+    translate(150, -width-300);
     background(255);
-    word.wave();
+    animation.display();
     popMatrix();
     ufo.display();
   }
@@ -34,5 +34,5 @@ void draw() {
 
 
 void keyPressed() {
-  initial=true;
+  initial=true; 
 }
