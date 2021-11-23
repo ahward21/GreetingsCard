@@ -23,7 +23,7 @@ void wave() {
   float q=angle;
   for (int x = 0; x< letters.length; x++) {
     for (int i=0;i<=100;i++) {
-      float y=sin(q)*mouseY/2;
+      float y=cos(q)*mouseY/2;
       fill(r-i*2, g-i*2, b-i*2);
       text(longText.charAt(x)+" ",i*10,y+height/2);
           
