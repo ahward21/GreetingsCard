@@ -4,28 +4,47 @@ class Background {
 
   Background() {
     field= loadImage("Field.jpg");
+      loadPixels();
     field.loadPixels();
-
   }
 
 
+
+  void displays() {
+
+    /*imageMode(CORNER);
+     image(field, 0, 0, width, height);
+     imageMode(CENTER);*/
+  }
 
   void display() {
+    
+  for ( int x=0; x<field.width; x++) {
+    for (int y=0; y<field.height; y++) {
 
-    imageMode(CORNER);
-    image(field, 0, 0, width, height);
-    imageMode(CENTER);
-  }
+      /*int posX= mouseX;
+      int posY= mouseY;*/
 
-/*
-  void update() {
-    for (int i = 0; i<pixels.length; i++) {
-      if (dist(xLetter, pixels[i])<20 && dist( yLetter, pixels[i])<20) {
-        color c= color(255);
+      int loc = x+y*field.width;
 
-        pixels[i]=c;
-      }
+      float r = red(field.pixels[loc]);
+      float g = green(field.pixels[loc]);
+      float b= blue(field.pixels[loc]);
+
+      float distance= dist(x, y, mouseX,mouseY);
+      float adjustBrightness= map(distance, 0, 200, 8, 0);
+      r *= adjustBrightness;
+      g *= adjustBrightness;
+      b *= adjustBrightness;
+
+      r=constrain(r, 0, 150);
+      g=constrain(g, 0, 150);
+      b= constrain(b, 0, 150);
+
+      color c = color(r, g, b);
+      pixels[loc]=c;
     }
-    updatePixels();
-  }*/
+  }
+  updatePixels();
+  }
 }

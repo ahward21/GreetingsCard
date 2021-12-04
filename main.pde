@@ -10,7 +10,7 @@ Card card;
 Background bg;
 
 void setup() {
-  size(700, 1250);
+  size(1920, 1200);
   noStroke();
   smooth();
   animation= new Animation();
@@ -28,17 +28,18 @@ void draw() {
   }
   if (initial==true) {
    
-    //bg.update();
+    
     bg.display();
     cow.display();
     pushMatrix();
     rotate(HALF_PI);
-    translate(150, -width-300);
+    translate(150, (-width/2)-630);
     //background(255);
     animation.display();
     popMatrix();
     ufo.display();
     cow.move();
+    //bg.flashlight();
   }
 }
 
